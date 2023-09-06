@@ -1,0 +1,23 @@
+<div class="products-list">
+    <!-- <h1 class="products-header">Available Products</h1> -->
+    <div class="topsearch">
+            <form>
+                <input type="text" placeholder="Search Product Here" [(ngModel)]="searchData" name="input">
+                <button class="btn btn-success" (click)="search()">Search</button>
+            </form>
+           <button class="btn btn-success" id="cart-products" (click)="moveToCart()"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</button>
+    </div>
+<table>
+    <tr *ngFor="let product of products">
+        <td><img [src]="product.image" class="image-small"/></td>
+        <td><img [src]="product.image" class="image-medium"/></td>
+        <td>
+            <div class="product-title"><h1>{{product.title}}</h1></div>
+            <h2 class="price">Price : {{ product.price | currency : "INR" : true}}</h2>
+            <p>{{product.description}}</p>
+            <h3 class="rate">Ratings : {{product.ratingRate}}</h3>
+            <button class="btn btn-success" id="btn-cart" (click)="addToCart(product)">Add to Cart</button>
+        </td>
+    </tr>
+</table>
+</div>

@@ -1,0 +1,104 @@
+table,tr,td{
+    padding: 10px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+tr{
+    border: 2px solid rgba(224, 109, 109, 0.123);
+}
+tr : hover{
+
+}
+.product-title :hover{
+    color: rgb(167, 14, 205);
+
+}
+
+button :hover{
+    color : yellow;
+}
+/* .product-title :focus{
+    color: rgb(49, 222, 81);
+
+} */
+/* .products-header{
+    color: rgb(226, 245, 245);
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+} */
+.image-small{
+    height: 40px;
+    width: 40px;
+    border: 2px solid rgba(0, 0, 0, 0.123);
+    padding: 7px;
+    border-radius: 5px;
+    margin-top: -330px;
+}
+.image-small:hover{
+    border-color: red;
+}
+
+.image-medium:hover{
+    border-color: rgb(0, 238, 255);
+}
+
+.image-medium{
+    height: 400px;
+    width: 300px;
+    padding: 30px;
+    border: 2px solid  rgba(0, 0, 0, 0.123);
+    border-radius: 10px;
+
+}
+/* .image-medium:hover{
+
+} */
+.price{
+    color: rgb(19, 113, 151);
+}
+.rate{
+    color:red;
+}
+
+.topsearch {
+    background-color: rgb(12, 229, 188);
+    border-radius: 50px;
+    padding: 10px;
+    margin: 10px
+}
+
+form input{
+padding: 5px;
+margin-left: 30%;
+border-radius: 20px;
+width: 30%;
+border-color: rgb(12, 229, 188);
+outline: blue;
+}
+
+
+
+form button {
+    color: white;
+    font-size: medium;
+    border-radius: 20px;
+    margin-left: -30px;
+    margin-top: -2px;
+    border: none;
+    outline: none;
+}
+
+#cart-products{
+    background-color: rgb(12, 229, 188);
+    float: right;
+    margin-top: -36px;
+    border-color: rgb(12, 229, 188);
+    margin-right: 50px;
+    color: white;
+    text-size-adjust: auto;
+    outline: none;
+    font-size: 20px;
+}

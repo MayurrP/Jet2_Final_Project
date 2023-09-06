@@ -1,0 +1,72 @@
+table,tr,td{
+    padding: 10px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+tr{
+    border: 2px solid rgba(224, 109, 109, 0.123);
+}
+.product-title :hover{
+    color: rgb(167, 14, 205);
+
+}
+
+button :hover{
+    color : yellow;
+}
+/* .product-title :focus{
+    color: rgb(49, 222, 81);
+
+} */
+/* .products-header{
+    color: rgb(226, 245, 245);
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+} */
+.image-small{
+    height: 40px;
+    width: 40px;
+    border: 2px solid rgba(0, 0, 0, 0.123);
+    padding: 7px;
+    border-radius: 5px;
+}
+.card {
+
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 20px;
+  }
+.image-small:hover{
+    border-color: red;
+}
+
+.image-medium:hover{
+    border-color: rgb(0, 238, 255);
+}
+
+.image-medium{
+    height: 200px;
+    width: 150px;
+    padding: 30px;
+    border: 2px solid  rgba(0, 0, 0, 0.123);
+    border-radius: 10px;
+
+}
+/* .image-medium:hover{
+
+} */
+.price{
+    color: rgb(19, 113, 151);
+}
+.rate{
+    color:red;
+}
+
+     

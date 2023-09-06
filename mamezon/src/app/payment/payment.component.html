@@ -1,0 +1,97 @@
+<html>
+<body>
+	<div class="container">
+		<div class="left">
+			<p>Payment methods</p>
+			<hr style="border:1px solid #ccc; margin: 0 15px;">
+			<div class="methods">
+				<div (click)="doFun()" id="tColorA">Payment by Card</div>
+				<div (click)="doFunA()" id="tColorB">Internet Bank</div>
+				<div (click)="doFunB()" id="tColorC"> Upi Pay</div>
+			</div>
+			<hr style="border:1px solid #ccc; margin: 0 15px;">
+		</div>
+		<div class="center" [hidden]="isFun">
+			<a><img alt="Credit Card Logos" title="Credit Card Logos" src="https://www.shift4shop.com/images/credit-card-logos/cc-lg-4.png" width="250" height="auto"/></a>
+			<hr style="border:1px solid #ccc; margin: 0 15px;">
+
+			<div class="card-details">
+				<form id="card-form" [formGroup]="cardForm" (ngSubmit)="onCardDetails()">
+					<p>Card number</p>
+					<div class="c-number" id="c-number">
+						<input id="number" class="cc-number" placeholder="Card number" formControlName="cardNumber" minlength="16" maxlength="16">
+					</div>
+
+					<div class="c-details">
+						<div>
+							<p>Expiry date</p>
+							<input id="e-date" class="cc-exp" placeholder="MM/YY" required formControlName="expDate">
+						</div>
+						<div>
+							<p>CVV</p>
+							<div class="cvv-box" id="cvv-box">
+								<input id="cvv" class="cc-cvv" placeholder="CVV" formControlName="cvvNum" minlength="3" maxlength="3">
+							</div>
+						</div>
+					</div>
+					<div class="email">
+						<p>Card Holder's Name</p>
+						<input type="text" placeholder="Card Holder's Name" id="hname" formControlName="cardHolder">
+					</div>
+					<button type="submit">PAY NOW</button>
+				</form>
+			</div>
+		</div>
+
+        <!-- Internet Bank -->
+
+        <div class="center" [hidden]="isFunA">
+			<a><h2>Internet Banking</h2></a>
+			<hr style="border:1px solid #ccc; margin: 0 15px;">
+
+			<div class="card-details">
+				<form id="net-form" [formGroup]="netBankForm" (ngSubmit)="onNetBankSubmit()">
+					<p>Select Bank</p>
+                    <div class="c-number" id="c-number">
+						<!-- <input id="number" class="cc-number" placeholder="Card number" maxlength="16" required> -->
+                        <select class="bank-select" placeholder="Select Banks" formControlName="netBankName">
+                            <option class="bank-option" *ngFor="let bank of banklist">{{bank.bankName}}</option>
+                        </select>
+					</div>
+					<button type="submit" [disabled]="!netBankForm.valid">PAY NOW</button>
+				</form>
+			</div>
+		</div>     
+        
+            <!-- upi -->
+
+        <div class="center" [hidden]="isFunB">
+			<a><img src="https://th.bing.com/th?id=OSK.e78bf74fe9ad12ed0dcdc7f7fc1d4fc2&w=117&h=82&c=7&o=6&dpr=1.5&pid=SANGAM"></a>
+			<hr style="border:1px solid #ccc; margin: 0 15px;">
+
+			<div class="card-details">
+				<form id="upi-form" [formGroup]="upiForm">
+                    <div class="email">
+						<p>Upi Id</p>
+						<input type="email" placeholder="exmple@ok.upi" formControlName="upi">
+					</div>
+					<button (click)="onUpiPayDetails()" >PAY NOW</button>
+				</form>
+			</div>
+		</div>
+
+
+		<div class="right">
+			<p>Order information</p>
+			<hr style="border:1px solid #ccc; margin: 0 15px;">
+			<div class="details">
+				<div style="font-weight: bold; padding: 3px 0;">Order discription</div>
+				<div style="padding: 3px 0;">Test payment</div>
+			</div>
+			<hr style="border:1px solid #ccc; margin: 0 15px;">
+			<a href="https://www.shift4shop.com/credit-card-logos.html"><img alt="Credit Card Logos" title="Credit Card Logos" src="https://www.shift4shop.com/images/credit-card-logos/cc-lg-4.png" width="100%" height="auto" /></a>
+		</div>
+		
+	</div>
+</body>
+</html>
