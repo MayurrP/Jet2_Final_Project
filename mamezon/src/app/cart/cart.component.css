@@ -69,4 +69,38 @@ button :hover{
     color:red;
 }
 
-     
+img{
+    display: block;
+margin-left: auto;
+margin-right: auto;
+width: 40%;
+}
+
+.continueshop{
+    margin-top: 16%;
+}
+
+.btn-continue{
+    margin-left: 43%;
+    color: #fff;
+    background-color: rgb(36, 103, 204);
+    margin-bottom: 5%;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    outline: none;
+    border-color: white;
+}
+.empty-cart{
+    margin-top: -24%;
+    margin-left: 37%;
+    color: green;
+}
+.cart-empty{
+    background-color: rgba(196, 184, 184, 0.062);
+}
+
+.delete-img{
+    margin-top: 20px;
+}

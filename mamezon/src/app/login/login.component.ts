@@ -15,7 +15,6 @@ export class LoginComponent {
   username = "";
   allUsers! : User[];
   flag = false;
-
   "loginForm" : FormGroup;
   isSubmitted = false;
 
@@ -26,7 +25,7 @@ export class LoginComponent {
       email : ['',Validators.required],
       password : ['',Validators.required]
     });
-
+    localStorage.removeItem('profile_user');
     this.user = localStorage.getItem('users_data') as string;
     this.allUsers = JSON.parse(this.user);
   }

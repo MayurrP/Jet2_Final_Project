@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,9 @@ export class AppComponent {
   user = true;
   signRegister = false;
   userProfileName ;
-  constructor(){
+  constructor(private router : Router){
     this.userProfileName = localStorage.getItem('profile_user');
-    console.log(this.userProfileName);
+    // console.log(this.userProfileName);
 
     if(this.userProfileName == null)
     {
@@ -26,4 +27,11 @@ export class AppComponent {
       this.user = false;
     }
   }
+
+  logout()
+{
+  this.router.navigateByUrl('login').then(()=>{
+    window.location.reload();
+  });
+}
 }

@@ -1,6 +1,9 @@
+<div [hidden]="loding">
+    <img class="load" src="https://pa1.narvii.com/6707/87dc8abb4427e5db58ed189972b07042d139b7b5_hq.gif">
+</div>
 <div class="products-list">
     <!-- <h1 class="products-header">Available Products</h1> -->
-    <div class="topsearch">
+    <div class="topsearch" [hidden]="searchLod">
             <form>
                 <input type="text" placeholder="Search Product Here" [(ngModel)]="searchData" name="input">
                 <button class="btn btn-success" (click)="search()">Search</button>

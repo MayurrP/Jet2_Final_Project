@@ -12,7 +12,8 @@ import { Product } from '../Product';
 export class ProductComponent {
   products! : any[];
   searchData = "";
-  count = 0;
+  loding = false;
+  searchLod = true;
 
   pay_cart_product = "";
   pay_allproducts! : Product[];
@@ -30,8 +31,21 @@ export class ProductComponent {
   {
     this.service.getdata().subscribe((data : any[])=>{
       this.products = data;
-      // console.log(this.products);
+      //  console.log(this.products);
+      if(this.products == null)
+    {
+      this.loding = false;
+      this.searchLod = true;
+      window.location.reload();
+
+      
+    }
+    else{
+      this.loding = true;
+      this.searchLod = false;
+    }
     });
+
     this.carts = new Product(
       {
         title : "",price:0,image:""
@@ -40,7 +54,7 @@ export class ProductComponent {
 
       this.pay_cart_product = localStorage.getItem('cart_list') as string;
       this.pay_allproducts = JSON.parse(this.pay_cart_product);
-      console.log(this.pay_allproducts);
+      // console.log(this.pay_allproducts);
       if(this.pay_allproducts === null){}
         else{
         this.pay_allproducts.forEach(data =>{
@@ -67,7 +81,6 @@ export class ProductComponent {
   {
     if(this.cartlist === null){ this.cartlist=[];}
     this.cartlist.push(prod);
-    this.count++;
     alert(prod.title+" added to cart");
     localStorage.setItem('cart_data',JSON.stringify(this.cartlist));
   }
@@ -84,14 +97,14 @@ export class ProductComponent {
   }
 
   moveToCart(){
-    console.log(this.count);
-    if(this.count == 0)
-    {
-      alert("Cart is Empty");
-    }
-    else{
+    // console.log(this.cartlist);
+    // if(this.cartlist[0] == null)
+    // {
+    //   alert("Cart is Empty");
+    // }
+    // else{
     this.router.navigateByUrl('cart');
-  }
+  // }
   }
 
 }

@@ -11,3 +11,13 @@
     height: 45px;
     margin: -10px;
 }
+
+.logout{
+    margin: 14px 5px 5px 5px;
+    color:darkgrey;
+    cursor: pointer;
+}
+
+.logout :hover{
+color: white;
+}

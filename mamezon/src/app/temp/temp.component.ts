@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from '../User';
 
 @Component({
   selector: 'app-temp',
@@ -6,23 +8,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./temp.component.css']
 })
 export class TempComponent {
+  
+  user = "";
+  username! : any ;
+  email ="";
+  custname = "";
+  allUsers! : User[];
 
-  isFun = true;
-  isFunA = false;
-  isFunB = true;
-  doFun(){
-    this.isFunA = true;
-    this.isFunB = true;
-    this.isFun= false;
+
+  constructor(private router : Router)
+  {
+    this.user = localStorage.getItem('users_data') as string;
+    this.allUsers = JSON.parse(this.user);
+    this.username =localStorage.getItem('profile_user');
+
+    this.allUsers.forEach(data =>{
+      if(this.username === data.name)
+      {
+        this.custname = data.name;
+        this.email = data.email;
+      }
+    })
   }
-  doFunA(){
-    this.isFun= true;
-    this.isFunB= true;
-    this.isFunA= false;
-  }
-  doFunB(){
-    this.isFun= true;
-    this.isFunA= true;
-    this.isFunB= false;
-  }
+
+
+
+logout()
+{
+  this.router.navigateByUrl('login').then(()=>{
+    window.location.reload();
+  });
+}
 }
