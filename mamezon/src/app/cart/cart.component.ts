@@ -20,8 +20,8 @@ export class CartComponent {
   ngOnInit(){
   this.product = localStorage.getItem('cart_data') as string;
   this.allproducts = JSON.parse(this.product);
-  console.log(this.allproducts);
-  if(this.allproducts === null)
+  // console.log(this.allproducts);
+  if(this.allproducts === null || this.allproducts.length === 0)
   {
     this.cartvalue = false;
     this.cartlistvalue = true;
@@ -30,17 +30,23 @@ export class CartComponent {
     this.cartvalue = true;
     this.cartlistvalue = false;
   }
-  this.allproducts.forEach(element => {
-    this.total += element.price;
-  });
-  console.log("Total : "+this.total);
+ this.getTotal()
+  // console.log("Total : "+this.getTotal());
 
   localStorage.setItem('cart_list',JSON.stringify(this.allproducts));
 
 }
 
-deleteItem(){
-  alert("Item Deleted");
+deleteItem(item: any){
+  this.allproducts.map((a:any, index:any)=>{
+    if(item.id=== a.id){
+      this.total -= item.price;
+      this.allproducts.splice(index,1);
+    }
+  })
+  localStorage.removeItem('cart_data');
+  localStorage.setItem('cart_data',JSON.stringify(this.allproducts));
+  window.location.reload();
 }
 
 payment()
@@ -50,7 +56,13 @@ payment()
 back()
 {
   this.router.navigateByUrl('product');
+}
 
+getTotal()
+{
+  this.allproducts.forEach(element => {
+    this.total += element.price;
+  });
 }
 
 }
